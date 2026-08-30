@@ -1,0 +1,5 @@
+CMake Version:  4.4.0
+Ninja Version: 1.13.2
+LLVM-ET-Arm Version: 19.1.5  
+probe-rs: 0.32.0 
+CubeMX 6.18.0

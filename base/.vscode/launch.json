@@ -1,0 +1,56 @@
+{
+    "version": "0.2.0",
+    "env": {
+        //!MODIFY (or remove)
+        // If you set this variable, check the VSCode console log window for the location of the log file.
+        "RUST_LOG": "info",
+        "PATH": "C:\\Program Files\\Arm\\GNU Toolchain mingw-w64-x86_64-arm-none-eabi\\bin;${env:PATH}"
+    },
+    "configurations": [
+        {
+            //"preLaunchTask": "${defaultBuildTask}",
+            "type": "probe-rs-debug",
+            "request": "launch",
+            "name": "Launch",
+            "cwd": "${workspaceFolder}",
+            "connectUnderReset": false,
+            "speed": 1000,
+            "chip": "STM32F103C8",
+            "flashingConfig": {
+                "flashingEnabled": true,
+                "verifyBeforeFlashing": true,
+                "verifyAfterFlashing": true,
+                "haltAfterReset": true,
+                "formatOptions": {
+                    //!MODIFY (or remove). Valid values are: 'bin', 'hex', 'elf'(default), 'idf'
+                    "binaryFormat": "elf"
+                }
+            },
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${workspaceFolder}/build/Debug/app/app.elf",
+                    "svdFile": "${workspaceFolder}/debug/STM32F103xx.svd"
+                }
+            ],
+            "consoleLogLevel": "Info"
+        },
+        {
+            "type": "probe-rs-debug",
+            "request": "attach",
+            "name": "🔗 Attach (no flash, no reset)",
+            "cwd": "${workspaceFolder}",
+            "connectUnderReset": false,
+            "speed": 1000,
+            "chip": "STM32F103C8",
+            "coreConfigs": [
+                {
+                    "coreIndex": 0,
+                    "programBinary": "${workspaceFolder}/build/Debug/app/app.elf",
+                    "svdFile": "${workspaceFolder}/debug/STM32F103xx.svd"
+                }
+            ],
+            "consoleLogLevel": "Console"
+        }
+    ]
+}
