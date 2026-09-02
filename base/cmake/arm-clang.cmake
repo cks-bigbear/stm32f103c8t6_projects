@@ -11,10 +11,6 @@ set(CMAKE_LINKER                    clang)
 set(CMAKE_OBJCOPY                   llvm-objcopy)
 set(CMAKE_SIZE                      llvm-size)
 
-set(CMAKE_C_COMPILER_TARGET   arm-none-eabi)
-set(CMAKE_CXX_COMPILER_TARGET arm-none-eabi)
-set(CMAKE_ASM_COMPILER_TARGET arm-none-eabi)
-
 set(CMAKE_EXECUTABLE_SUFFIX_ASM     ".elf")
 set(CMAKE_EXECUTABLE_SUFFIX_C       ".elf")
 set(CMAKE_EXECUTABLE_SUFFIX_CXX     ".elf")
@@ -22,7 +18,7 @@ set(CMAKE_EXECUTABLE_SUFFIX_CXX     ".elf")
 set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
 
 # MCU specific flags
-set(TARGET_FLAGS "-mcpu=cortex-m3 -mfpu=none")
+set(TARGET_FLAGS "--target=thumbv7m-unknown-none-eabi -mfpu=none")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_FLAGS}")
 set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -x assembler-with-cpp -MP")
