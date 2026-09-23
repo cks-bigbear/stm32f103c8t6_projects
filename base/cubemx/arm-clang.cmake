@@ -1,8 +1,8 @@
 set(CMAKE_SYSTEM_NAME               Generic)
 set(CMAKE_SYSTEM_PROCESSOR          arm)
 
-set(CMAKE_C_COMPILER_ID Clang)
-set(CMAKE_CXX_COMPILER_ID Clang)
+# Some default Clang settings
+# armv7-w64-mingw32- must be part of path environment
 
 set(CMAKE_C_COMPILER                clang)
 set(CMAKE_ASM_COMPILER              ${CMAKE_C_COMPILER})
@@ -22,11 +22,11 @@ set(TARGET_FLAGS "--target=thumbv7m-unknown-none-eabi -mfpu=none")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_FLAGS}")
 set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -x assembler-with-cpp -MP")
- 
-set(CMAKE_C_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
-set(CMAKE_C_FLAGS_RELEASE "-Oz -g0")
-set(CMAKE_CXX_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
-set(CMAKE_CXX_FLAGS_RELEASE "-Oz -g0")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TARGET_FLAGS} -fno-rtti -fno-exceptions -fno-threadsafe-statics")
 
-set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-rtti -fno-exceptions -fno-threadsafe-statics")
+set(CMAKE_C_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
+set(CMAKE_C_FLAGS_RELEASE "-Oz -g0 -gdwarf-4")
+set(CMAKE_CXX_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
+set(CMAKE_CXX_FLAGS_RELEASE "-Oz -g0 -gdwarf-4")
+
 

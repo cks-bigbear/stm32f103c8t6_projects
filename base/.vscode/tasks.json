@@ -41,9 +41,7 @@
             "focus": true,
             "panel": "shared"
         },
-        "problemMatcher": [],
-        "detail": "probe-rs download ELF (no reset)",
-        "dependsOrder": "sequence"
+        "problemMatcher": []
     }
   ]
 }

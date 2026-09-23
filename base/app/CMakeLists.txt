@@ -9,6 +9,7 @@ target_link_options(${APP_TARGET}
   "-Wl,--gc-sections"
   "-T" "${CMAKE_CURRENT_SOURCE_DIR}/app.ld"
   "-Wl,--print-memory-usage"
+  "-Wl,--orphan-handling=warn"
   "-Wl,-Map=$<TARGET_FILE_DIR:${APP_TARGET}>/$<TARGET_NAME:${APP_TARGET}>_$<CONFIG>.map"
 )
 

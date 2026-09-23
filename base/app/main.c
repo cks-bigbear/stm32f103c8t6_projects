@@ -3,7 +3,6 @@
 #include "gpio.h"
 #include "usart.h"
 
-
 void SystemClock_Config(void);
 
 int main(void) {
