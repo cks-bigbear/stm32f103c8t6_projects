@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "options": {
+    "cwd": "${workspaceFolder}",
+    "env": {
+      "PATH": "C:\\Program Files\\CMake\\bin;C:\\ninja-win;C:\\LLVM-ET-Arm-19.1.5-Windows-x86_64\\bin;${env:PATH}"
+    }
+  },
+  "tasks": [
+    {
+      "label": "CMake Configure",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--preset=Debug"
+      ]
+    },
+    {
+      "label": "CMake Build",
+      "type": "shell",
+      "command": "cmake",
+      "args": ["--build", "--preset=Debug"],
+      "dependsOn": ["CMake Configure"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+        "label": "Download",
+        "type": "shell",
+        "command": "probe-rs",
+        "args": [
+            "download",
+            "--chip", "STM32F103C8",
+            "${workspaceFolder}/build/Debug/app/app.elf"
+        ],
+        "presentation": {
+            "echo": true,
+            "reveal": "always",
+            "focus": true,
+            "panel": "shared"
+        },
+        "problemMatcher": []
+    }
+  ]
+}

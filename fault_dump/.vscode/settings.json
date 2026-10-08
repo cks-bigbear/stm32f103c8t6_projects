@@ -1,0 +1,10 @@
+{
+  "clangd.arguments": [
+    "--compile-commands-dir=${workspaceFolder}/build/Debug",
+    "--background-index",
+    "--clang-tidy=false"
+  ],
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "cmake.configureOnOpen": false,
+  "cmake.configureOnEdit": false
+}
