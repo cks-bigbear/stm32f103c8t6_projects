@@ -9,10 +9,6 @@
 static void SystemClock_Config(void);
 static void enable_faults(void);
 
-void test() { trigger_busfault_read(); }
-
-int add(int a, int b) { return a + b; }
-
 int main(void) {
     HAL_Init();
     SystemClock_Config();
@@ -26,7 +22,7 @@ int main(void) {
     while (1) {
         i++;
         if (i > 3) {
-            test();
+            trigger_busfault_read();
         }
         HAL_Delay(1000);
         printf("running...\r\n");
