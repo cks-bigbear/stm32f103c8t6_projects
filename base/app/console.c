@@ -18,8 +18,7 @@ void console_line(const char *s) {
     console_output("\r\n");
 }
 
-static void console_output_hex(uint8_t byte)
-{
+static void console_output_hex(uint8_t byte) {
     static const char hex[] = "0123456789ABCDEF";
     char buf[3];
 
@@ -30,8 +29,7 @@ static void console_output_hex(uint8_t byte)
     console_output(buf);
 }
 
-void console_output_hexbuf(const uint8_t *data, uint16_t len)
-{
+void console_output_hexbuf(const uint8_t *data, uint16_t len) {
     if (!data || len == 0)
         return;
 
@@ -46,4 +44,9 @@ void console_output_hexbuf(const uint8_t *data, uint16_t len)
     }
 
     console_output("\r\n");
+}
+
+int __io_putchar(int ch) {
+    HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, HAL_MAX_DELAY);
+    return ch;
 }

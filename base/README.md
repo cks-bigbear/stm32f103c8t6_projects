@@ -6,7 +6,7 @@ Implement serial loop printing of "running...".
 
 2. Modify the toolchain paths (CMake, Ninja, LLVM-ET-Arm) in the options.env section of .vscode/tasks.json, then press Ctrl + Shift + B​ to build the project.  
 
-3. After connecting the programmer/debugger, press Ctrl + P​ to open the Command Palette, select "Tasks: Run Task", then choose the Download​ task to flash the firmware to the MCU.  
+3. After connecting the programmer/debugger, press Ctrl + Shift + P​ to open the Command Palette, select "Tasks: Run Task", then choose the Download​ task to flash the firmware to the MCU. 
 
 4. Connect the board to the computer via a TTL-to-USB serial adapter, open a serial terminal, reset the MCU to start the program, and you should see "running..." printed repeatedly.  
 

@@ -7,4 +7,6 @@ void console_output(const char *s);
 void console_line(const char *s);
 void console_output_hexbuf(const uint8_t *data, uint16_t len);
 
+int __io_putchar(int ch);
+
 #endif

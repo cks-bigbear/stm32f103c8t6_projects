@@ -23,9 +23,9 @@ set(TARGET_FLAGS "--target=thumbv7m-unknown-none-eabi -mfpu=none")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${TARGET_FLAGS}")
 set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} -x assembler-with-cpp -MP")
  
-set(CMAKE_C_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
+set(CMAKE_C_FLAGS_DEBUG "-Og -g3 -gdwarf-4 -gstrict-dwarf")
 set(CMAKE_C_FLAGS_RELEASE "-Oz -g0")
-set(CMAKE_CXX_FLAGS_DEBUG "-Og -g3 -gdwarf-4")
+set(CMAKE_CXX_FLAGS_DEBUG "-Og -g3 -gdwarf-4 -gstrict-dwarf")
 set(CMAKE_CXX_FLAGS_RELEASE "-Oz -g0")
 
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-rtti -fno-exceptions -fno-threadsafe-statics")
